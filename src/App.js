@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { setOnlineAction } from './state/reducer/reducerUser';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
+import Home from './component/Home/Home';
+
+import Login from './component/Login/Login';
 
 function App() {
+  const dispatch = useDispatch();
+  const online = useSelector((state) => state.user.online);
+  const onSuсcessLogin = (event) => {
+    event.preventDefault();
+    dispatch(setOnlineAction(true));
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
     </div>
   );
 }

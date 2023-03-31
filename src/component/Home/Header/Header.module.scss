@@ -1,0 +1,17 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  .Exit {
+    display: flex;
+    justify-content: space-between;
+    width: 83px;
+    cursor: pointer;
+    .ExitIcon {
+      background: url(../../../img/log-out-icon.png) center no-repeat;
+      width: 23px;
+      height: 23px;
+    }
+  }
+}

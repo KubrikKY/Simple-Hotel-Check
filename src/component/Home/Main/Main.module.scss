@@ -1,0 +1,11 @@
+.Main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  .locationFavorite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
