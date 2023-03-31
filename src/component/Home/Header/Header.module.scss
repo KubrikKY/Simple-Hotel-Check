@@ -7,7 +7,14 @@
     display: flex;
     justify-content: space-between;
     width: 83px;
+    height: auto;
     cursor: pointer;
+    background: transparent;
+    color: inherit;
+    &:hover,
+    p:hover {
+      background: transparent;
+    }
     .ExitIcon {
       background: url(../../../img/log-out-icon.png) center no-repeat;
       width: 23px;

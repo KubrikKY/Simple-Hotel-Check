@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setOnlineAction } from './state/reducer/reducerUser';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 import Home from './component/Home/Home';
 
@@ -17,7 +17,8 @@ function App() {
   };
   return (
     <div className="App">
-      {online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
+      {/* WARNING SET NOT ONLINE */}
+      {!online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
     </div>
   );
 }
