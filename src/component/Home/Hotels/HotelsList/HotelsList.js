@@ -7,8 +7,6 @@ function HotelsList() {
     state.hotels.hotels,
     state.hotels.locations,
   ]);
-  console.log(hotels);
-  console.log(locations);
 
   return (
     <ul className={classes.HotelsList}>

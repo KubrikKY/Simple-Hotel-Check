@@ -11,16 +11,22 @@ import Login from './component/Login/Login';
 
 function App() {
   const dispatch = useDispatch();
-  const online = useSelector((state) => state.user.online);
+  const user = useSelector((state) => state.user);
   const onSuсcessLogin = (event) => {
     event.preventDefault();
+    if (!localStorage.getItem(user.login)) {
+      localStorage.setItem(
+        user.login,
+        JSON.stringify({ ...user, online: true })
+      );
+    }
     dispatch(fetchDefaultHotels());
     dispatch(setOnlineAction(true));
   };
   return (
     <div className="App">
       {/* WARNING SET NOT ONLINE */}
-      {online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
+      {user.online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
     </div>
   );
 }

@@ -8,7 +8,6 @@ import {
 function Like({ id }) {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.user.favourites);
-  console.log(favourites);
   const LikeToggle = () => {
     if (!favourites.includes(id)) {
       dispatch(addFavoritesAction(id));

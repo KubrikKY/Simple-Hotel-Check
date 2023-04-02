@@ -12,6 +12,7 @@ const DELETE_FAVORITES = 'DELETE_FAVORITES';
 const SET_PASSWORD = 'SET_PASSWORD';
 const SET_ONLINE = 'SET_ONLINE';
 const LOG_OUT = 'LOG_OUT';
+const ADD_FAVORITES_FROM_LOCAL = 'ADD_FAVORITES_FROM_LOCAL';
 
 export const reducerUser = (state = defaultState, action) => {
   switch (action.type) {
@@ -23,16 +24,28 @@ export const reducerUser = (state = defaultState, action) => {
       return { ...state, online: action.payload };
     case ADD_FAVORITES:
       const newFavouritesAdd = [...state.favourites, action.payload];
+      localStorage.setItem(
+        state.login,
+        JSON.stringify({ ...state, favourites: [...newFavouritesAdd] })
+      );
       return { ...state, favourites: [...newFavouritesAdd] };
+    case ADD_FAVORITES_FROM_LOCAL:
+      const favoriteFromLocal = JSON.parse(localStorage.getItem(state.login));
+      return { ...state, favourites: [...favoriteFromLocal.favourites] };
     case DELETE_FAVORITES:
       const newFavouritesDelete = [...state.favourites];
       newFavouritesDelete.splice(
         newFavouritesDelete.indexOf(action.payload),
         1
       );
+      localStorage.setItem(
+        state.login,
+        JSON.stringify({ ...state, favourites: [...newFavouritesDelete] })
+      );
+
       return { ...state, favourites: [...newFavouritesDelete] };
     case LOG_OUT:
-      return { ...defaultState };
+      return { ...defaultState, favourites: [] };
     default:
       return state;
   }
@@ -49,4 +62,8 @@ export const addFavoritesAction = (payload) => ({
 export const deleteFavoritesAction = (payload) => ({
   type: DELETE_FAVORITES,
   payload,
+});
+
+export const addFavoritesFromLocalAction = () => ({
+  type: ADD_FAVORITES_FROM_LOCAL,
 });
