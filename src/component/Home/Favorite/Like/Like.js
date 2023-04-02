@@ -9,10 +9,10 @@ function Like({ id, like }) {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.user.favourites);
   const LikeToggle = () => {
-    if (!favourites.includes(id)) {
-      dispatch(addFavoritesAction(id));
+    if (!favourites.find((e) => e.hotelId === id)) {
+      dispatch(addFavoritesAction(like));
     } else {
-      dispatch(deleteFavoritesAction(id));
+      dispatch(deleteFavoritesAction(like));
     }
   };
   return <div className={classes.Like} onClick={LikeToggle}></div>;

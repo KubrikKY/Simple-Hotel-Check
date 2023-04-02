@@ -5,7 +5,7 @@ import { addFavoritesFromLocalAction } from '../../../../state/reducer/reducerUs
 import FavouritesCard from '../FavouritesCard/FavouritesCard';
 function FavouritesList() {
   const dispatch = useDispatch();
-  const [login, favouritesHotelsId, hotels] = useSelector((state) => [
+  const [login, favouritesHotels, hotels] = useSelector((state) => [
     state.user.login,
     state.user.favourites,
     state.hotels.hotels,
@@ -16,9 +16,9 @@ function FavouritesList() {
       dispatch(addFavoritesFromLocalAction());
     }
   }, []);
-  const favouritesHotels = hotels.filter((hotel) =>
-    favouritesHotelsId.includes(hotel.hotelId)
-  );
+  // const favouritesHotels = hotels.filter((hotel) =>
+  //   favouritesHotelsId.includes(hotel.hotelId)
+  // );
   return (
     <ul className={classes.FavouritesList}>
       {favouritesHotels.map((hotel) => {
