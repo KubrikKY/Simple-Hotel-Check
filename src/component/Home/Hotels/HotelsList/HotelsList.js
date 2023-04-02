@@ -11,11 +11,11 @@ function HotelsList() {
   return (
     <>
       {countFavourites ? (
-        <p>
+        <p className={classes.FavouritesLength}>
           Добавлено в Избранное: <span>{countFavourites}</span> отеля
         </p>
       ) : (
-        <p>В избранном нет отелей</p>
+        <p className={classes.FavouritesLength}>В избранном нет отелей</p>
       )}
 
       <ul className={classes.HotelsList}>
@@ -27,6 +27,7 @@ function HotelsList() {
               like={hotel}
               hotelName={hotel.hotelName}
               price={hotel.priceAvg}
+              checkInfo={hotel.checkInfo}
             />
           );
         })}

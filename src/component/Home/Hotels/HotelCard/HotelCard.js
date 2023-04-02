@@ -1,14 +1,11 @@
 import React from 'react';
 import classes from './HotelCard.module.scss';
 import Like from '../../Favorite/Like/Like';
-import { useSelector } from 'react-redux';
 import { monthRu } from '../../../../func/monthRu';
 
-function HotelCard({ hotelName, id, price, like }) {
-  const [checkIn, checkOut] = useSelector((state) => [
-    state.hotels.checkIn,
-    state.hotels.checkOut,
-  ]);
+function HotelCard({ hotelName, id, price, like, checkInfo }) {
+  const { checkIn, checkOut } = checkInfo;
+
   return (
     <li className={classes.HotelCard}>
       <div className={classes.HotelInfoBlock}>

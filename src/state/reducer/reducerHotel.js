@@ -1,12 +1,15 @@
+import { dateNow } from '../../func/dateNow';
+
+const date = dateNow();
+
 const defaultState = {
   hotels: [],
   location: 'Москва',
-  checkIn: '',
+  checkIn: date,
   checkOut: 1,
 };
 
 export const SET_HOTELS = 'SET_HOTELS';
-export const FETCH_DEFAULT_HOTELS = 'FETCH_DEFAULT_HOTELS';
 export const FETCH_FIND_HOTELS = 'FETCH_FIND_HOTELS';
 export const SELECT_CHECK_IN = 'SELECT_CHECK_IN';
 export const SELECT_CHECK_OUT = 'SELECT_CHECK_OUT';
@@ -15,9 +18,13 @@ export const SELECT_LOCATION = 'SELECT_LOCATION';
 export const hotelReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SET_HOTELS:
+      const hotels = action.payload.map((hotel) => ({
+        ...hotel,
+        checkInfo: action.checkInfo,
+      }));
       return {
         ...state,
-        hotels: [...action.payload],
+        hotels: [...hotels],
       };
     case SELECT_CHECK_IN:
       return { ...state, checkIn: action.payload };
@@ -30,8 +37,11 @@ export const hotelReducer = (state = defaultState, action) => {
   }
 };
 
-export const setHotels = (payload) => ({ type: SET_HOTELS, payload });
-export const fetchDefaultHotels = () => ({ type: FETCH_DEFAULT_HOTELS });
+export const setHotels = (payload, checkInfo) => ({
+  type: SET_HOTELS,
+  payload,
+  checkInfo,
+});
 export const fetchFindHotels = ({ checkIn, checkOut, location }) => ({
   type: FETCH_FIND_HOTELS,
   checkIn,
