@@ -3,17 +3,35 @@ import { useSelector } from 'react-redux';
 import HotelCard from '../HotelCard/HotelCard';
 import classes from './HotelsList.module.scss';
 function HotelsList() {
-  const [hotels, locations] = useSelector((state) => [
+  const [hotels, countFavourites] = useSelector((state) => [
     state.hotels.hotels,
-    state.hotels.locations,
+    state.user.favourites.length,
   ]);
 
   return (
-    <ul className={classes.HotelsList}>
-      {hotels.map((hotel) => {
-        return <HotelCard key={hotel.id} id={hotel.id} label={hotel.label} />;
-      })}
-    </ul>
+    <>
+      {countFavourites ? (
+        <p>
+          Добавлено в Избранное: <span>{countFavourites}</span> отеля
+        </p>
+      ) : (
+        <p>В избранном нет отелей</p>
+      )}
+
+      <ul className={classes.HotelsList}>
+        {hotels.map((hotel) => {
+          return (
+            <HotelCard
+              key={hotel.hotelId}
+              id={hotel.hotelId}
+              like={hotel}
+              hotelName={hotel.hotelName}
+              price={hotel.priceAvg}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 }
 

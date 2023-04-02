@@ -5,7 +5,7 @@ import {
   addFavoritesAction,
   deleteFavoritesAction,
 } from '../../../../state/reducer/reducerUser';
-function Like({ id }) {
+function Like({ id, like }) {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.user.favourites);
   const LikeToggle = () => {

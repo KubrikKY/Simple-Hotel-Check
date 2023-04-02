@@ -1,15 +1,20 @@
 import React from 'react';
 import classes from './SearchInfo.module.scss';
-
+import { monthRu } from '../../../../func/monthRu';
+import { useSelector } from 'react-redux';
 function SearchInfo() {
+  const [checkIn, location] = useSelector((state) => [
+    state.hotels.checkIn,
+    state.hotels.location,
+  ]);
   return (
     <div className={classes.SearchInfo}>
       <div className={classes.Location}>
         <h2>Отели</h2>
-        <span>'BREADCRUMBS'</span>
-        <h2>#LOCATION</h2>
+        <h2> {'>'} </h2>
+        <h2>{location}</h2>
       </div>
-      <span>#DATE</span>
+      <span>{monthRu(checkIn)}</span>
     </div>
   );
 }

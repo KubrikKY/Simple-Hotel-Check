@@ -39,7 +39,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* WARNING SET NOT ONLINE */}
       {user.online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
     </div>
   );

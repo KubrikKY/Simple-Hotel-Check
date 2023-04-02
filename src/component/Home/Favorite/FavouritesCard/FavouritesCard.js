@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './HotelCard.module.scss';
-import Like from '../../Favorite/Like/Like';
+import Like from '../Like/Like';
 import { useSelector } from 'react-redux';
 import { monthRu } from '../../../../func/monthRu';
 
-function HotelCard({ hotelName, id, price, like }) {
+function FavouritesCard({ hotelName, id, price, like }) {
   const [checkIn, checkOut] = useSelector((state) => [
     state.hotels.checkIn,
     state.hotels.checkOut,
@@ -12,7 +12,6 @@ function HotelCard({ hotelName, id, price, like }) {
   return (
     <li className={classes.HotelCard}>
       <div className={classes.HotelInfoBlock}>
-        <div className={classes.HotelIcon}></div>
         <div className={classes.HotelInfo}>
           <h4>{hotelName}</h4>
           <p>
@@ -31,4 +30,4 @@ function HotelCard({ hotelName, id, price, like }) {
   );
 }
 
-export default HotelCard;
+export default FavouritesCard;
