@@ -1,6 +1,12 @@
 import React from 'react';
 import classes from './Find.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
 function Find() {
+  // TEST
+  // const hotels = useSelector((state) => console.log(state.hotels));
+
+  // TEST
+
   return (
     <div className={classes.FindSection}>
       <form className={classes.Find}>

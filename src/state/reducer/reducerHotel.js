@@ -1,18 +1,23 @@
 const defaultState = {
-  users: [],
+  hotels: [],
+  locations: [],
 };
 
-export const SET_USERS = 'SET_USERS';
-export const FETCH_USERS = 'FETCH_USERS';
+export const SET_HOTELS = 'SET_HOTELS';
+export const FETCH_DEFAULT_HOTELS = 'FETCH_DEFAULT_HOTELS';
 
-export const userReducer = (state = defaultState, action) => {
+export const hotelReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case SET_USERS:
-      return { ...state, users: action.payload };
+    case SET_HOTELS:
+      return {
+        ...state,
+        hotels: [...action.payload.results.hotels],
+        locations: [...action.payload.results.locations],
+      };
     default:
       return state;
   }
 };
 
-export const setUsers = (payload) => ({ type: SET_USERS, payload });
-export const fetchUsers = () => ({ type: FETCH_USERS });
+export const setHotels = (payload) => ({ type: SET_HOTELS, payload });
+export const fetchDefaultHotels = () => ({ type: FETCH_DEFAULT_HOTELS });

@@ -1,0 +1,20 @@
+.Photos {
+  //   overflow: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  margin-bottom: 28px;
+  .LocationsPhotosBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .LocationPhoto {
+      min-width: 164px;
+      height: 149px;
+      background-color: lightblue;
+      margin-right: 10px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
