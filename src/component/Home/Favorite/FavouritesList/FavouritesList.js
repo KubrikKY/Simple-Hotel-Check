@@ -11,7 +11,7 @@ function FavouritesList() {
     state.hotels.hotels,
   ]);
   useEffect(() => {
-    if (localStorage.getItem(login).length) {
+    if (localStorage.key(login).length) {
       dispatch(addFavoritesFromLocalAction());
     }
   }, []);

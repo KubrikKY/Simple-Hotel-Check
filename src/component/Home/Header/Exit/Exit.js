@@ -7,6 +7,8 @@ function Exit() {
   const dispatch = useDispatch();
   const onExit = (event) => {
     event.preventDefault();
+    localStorage.clear();
+
     dispatch(logOutAction());
   };
   return (
