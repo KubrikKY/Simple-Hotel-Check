@@ -3,7 +3,7 @@ import { FETCH_DEFAULT_HOTELS, setHotels } from '../state/reducer/reducerHotel';
 
 const fetchHotelsFromApi = () =>
   fetch(
-    'http://engine.hotellook.com/api/v2/lookup.json?query=moscow&lang=ru&lookFor=both&limit=10'
+    'https://engine.hotellook.com/api/v2/lookup.json?query=moscow&lang=ru&lookFor=both&limit=10'
   );
 
 //TEST
