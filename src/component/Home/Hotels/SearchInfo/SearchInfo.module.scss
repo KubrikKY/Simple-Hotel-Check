@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // max-width: 200px;
+    span {
+      color: rgba(167, 167, 167, 1);
+      font-weight: 300;
+      font-size: 25px;
+    }
   }
 }

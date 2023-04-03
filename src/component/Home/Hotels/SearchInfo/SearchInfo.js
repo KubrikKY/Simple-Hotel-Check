@@ -10,8 +10,9 @@ function SearchInfo() {
   return (
     <div className={classes.SearchInfo}>
       <div className={classes.Location}>
-        <h2>Отели {'> '} </h2>
-        <h2>{location}</h2>
+        <h2>
+          Отели <span>{'>'}</span> {location}
+        </h2>
       </div>
       <span>{monthRu(checkIn)}</span>
     </div>
