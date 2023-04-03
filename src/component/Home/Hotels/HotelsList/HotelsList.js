@@ -28,6 +28,7 @@ function HotelsList() {
               hotelName={hotel.hotelName}
               price={hotel.priceAvg}
               checkInfo={hotel.checkInfo}
+              rating={hotel.stars}
             />
           );
         })}

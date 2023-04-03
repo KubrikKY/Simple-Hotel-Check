@@ -69,7 +69,7 @@ function LoginForm({ onSuсcessLogin }) {
   };
 
   const isPasswordValid = (value) => {
-    return value.length < 9 && !PASSWORD_REGEXP.test(value);
+    return value.length > 8 && !PASSWORD_REGEXP.test(value);
   };
 
   return (
@@ -77,20 +77,31 @@ function LoginForm({ onSuсcessLogin }) {
       <Title />
       <form className={classes.Form} onSubmit={onSubmit}>
         <label>
-          <p>Логин</p>
+          {!validForm.login ? (
+            <p className={classes.Warning}>Логин</p>
+          ) : (
+            <p>Логин</p>
+          )}
+
           <input
             type="email"
             onChange={(e) => setLogin(e.target)}
             value={login}
           ></input>
+          {!validForm.login && <span>Введите e-mail</span>}
         </label>
         <label>
-          <p>Пароль</p>
+          {!validForm.password ? (
+            <p className={classes.Warning}>Пароль</p>
+          ) : (
+            <p>Пароль</p>
+          )}
           <input
             type="password"
             onChange={(e) => setPassword(e.target)}
             value={password}
           ></input>
+          {!validForm.password && <span>Пароль минимум 8 символов</span>}
         </label>
         <input type="submit" value="Войти" />
       </form>

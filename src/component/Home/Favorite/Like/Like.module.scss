@@ -4,4 +4,18 @@
   background: url('../../../../img/favorite.png') center no-repeat;
   margin-bottom: 22px;
   cursor: pointer;
+  transition: background 0.2s linear;
+  &:hover {
+    background: url('../../../../img/favorite-hover.png') center no-repeat;
+  }
+}
+.Like.Select {
+  background: url('../../../../img/favorite-select.png') center no-repeat;
+
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
+
+  &:hover {
+    opacity: 1;
+  }
 }

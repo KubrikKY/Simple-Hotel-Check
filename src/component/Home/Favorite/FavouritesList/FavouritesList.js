@@ -3,7 +3,7 @@ import classes from './FavouritesList.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavoritesFromLocalAction } from '../../../../state/reducer/reducerUser';
 import FavouritesCard from '../FavouritesCard/FavouritesCard';
-function FavouritesList() {
+function FavouritesList({ sort }) {
   const dispatch = useDispatch();
   const [login, favouritesHotels] = useSelector((state) => [
     state.user.login,
@@ -15,9 +15,21 @@ function FavouritesList() {
       dispatch(addFavoritesFromLocalAction());
     }
   }, []);
+
+  const sortHotels = [...favouritesHotels];
+  switch (sort.order) {
+    case 'ascending':
+      sortHotels.sort((a, b) => (a[sort.property] > b[sort.property] ? 1 : -1));
+      break;
+    case 'descending':
+      sortHotels.sort((a, b) => (b[sort.property] > a[sort.property] ? 1 : -1));
+      break;
+    default:
+  }
+
   return (
     <ul className={classes.FavouritesList}>
-      {favouritesHotels.map((hotel) => {
+      {sortHotels.map((hotel) => {
         return (
           <FavouritesCard
             key={hotel.hotelId}
@@ -26,6 +38,7 @@ function FavouritesList() {
             price={hotel.priceAvg}
             like={hotel}
             checkInfo={hotel.checkInfo}
+            rating={hotel.stars}
           />
         );
       })}

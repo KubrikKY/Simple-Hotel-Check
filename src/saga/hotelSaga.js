@@ -2,15 +2,12 @@ import { put, takeEvery, call } from 'redux-saga/effects';
 import { FETCH_FIND_HOTELS, setHotels } from '../state/reducer/reducerHotel';
 import { checkOutForRequest } from '../func/checkOutForRequest';
 
-//TEST
-
 const fetchHotelsByFind = ({ checkIn, checkOut, location }) => {
   const checkOutRequest = checkOutForRequest(checkIn, checkOut);
   return fetch(
-    `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkIn}&checkOut=${checkOutRequest}&limit=5`
+    `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkIn}&checkOut=${checkOutRequest}&limit=10`
   );
 };
-//TEST
 
 function* fetchHotelsFindWorker(checkIn, checkOut, location) {
   const data = yield call(() => fetchHotelsByFind(checkIn, checkOut, location));

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './Find.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,6 +8,8 @@ import {
   fetchFindHotels,
 } from '../../../state/reducer/reducerHotel';
 import { dateNow } from '../../../func/dateNow';
+import { compareDate } from '../../../func/compareDate';
+
 function Find() {
   const dispatch = useDispatch();
   const [checkIn, checkOut, location] = useSelector((state) => [
@@ -15,22 +17,31 @@ function Find() {
     state.hotels.checkOut,
     state.hotels.location,
   ]);
-
-  useEffect(() => {
-    dispatch(selectCheckIn(dateNow()));
-  }, []);
+  const [noCity, setNoCity] = useState(false);
 
   const onFind = (event) => {
     event.preventDefault();
-    dispatch(fetchFindHotels({ checkIn, checkOut, location }));
+    if (location) {
+      setNoCity(false);
+      dispatch(fetchFindHotels({ checkIn, checkOut, location }));
+    } else {
+      setNoCity(true);
+    }
   };
 
   const selectLocate = (value) => {
-    dispatch(selectLocation(value));
+    if (/^[a-zа-яё\-\s]+$/i.test(value) || value === '') {
+      if (value === '') {
+        setNoCity(true);
+      }
+      dispatch(selectLocation(value));
+    }
   };
 
   const selectDate = (value) => {
-    dispatch(selectCheckIn(value));
+    if (compareDate(value, dateNow())) {
+      dispatch(selectCheckIn(value));
+    }
   };
 
   const selectCurrentDays = (value) => {
@@ -49,6 +60,7 @@ function Find() {
             value={location}
             onChange={(e) => selectLocate(e.target.value)}
           />
+          {noCity && <span>Укажите город</span>}
         </label>
         <label>
           <p>Дата заселения</p>

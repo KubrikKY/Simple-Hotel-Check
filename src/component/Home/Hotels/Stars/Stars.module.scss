@@ -1,0 +1,19 @@
+.Stars {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+}
+
+.Star {
+  width: 17px;
+  height: 17px;
+}
+
+.GoldStar {
+  background: url('../../../../img/Star-gold.png');
+}
+
+.GreyStar {
+  background: url('../../../../img/Start-grey.png');
+}
