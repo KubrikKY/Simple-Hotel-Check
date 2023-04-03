@@ -5,8 +5,9 @@ import FavouritesList from './FavouritesList/FavouritesList';
 function Favorite() {
   const [sortBy, setSortBy] = useState({
     property: 'stars',
-    order: 'ascending',
+    order: true,
   });
+
   const selectSortBy = (value) => {
     setSortBy(value);
   };

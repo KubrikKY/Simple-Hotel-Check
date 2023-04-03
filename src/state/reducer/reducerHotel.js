@@ -7,6 +7,15 @@ const defaultState = {
   location: 'Москва',
   checkIn: date,
   checkOut: 1,
+  hotelsPhotoURL: [
+    '../img/Hotel_picture_1.jpg',
+    '../img/Hotel_picture_2.jpg',
+    '../img/Hotel_picture_3.jpg',
+    '../img/Hotel_picture_4.jpg',
+    '../img/Hotel_picture_5.jpg',
+    '../img/Hotel_picture_6.jpg',
+    '../img/Hotel_picture_7.jpg',
+  ],
 };
 
 export const SET_HOTELS = 'SET_HOTELS';

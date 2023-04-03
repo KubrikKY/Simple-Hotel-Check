@@ -33,6 +33,8 @@ function Find() {
     if (/^[a-zа-яё\-\s]+$/i.test(value) || value === '') {
       if (value === '') {
         setNoCity(true);
+      } else {
+        setNoCity(false);
       }
       dispatch(selectLocation(value));
     }

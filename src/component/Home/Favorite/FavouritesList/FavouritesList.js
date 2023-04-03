@@ -18,10 +18,10 @@ function FavouritesList({ sort }) {
 
   const sortHotels = [...favouritesHotels];
   switch (sort.order) {
-    case 'ascending':
+    case true:
       sortHotels.sort((a, b) => (a[sort.property] > b[sort.property] ? 1 : -1));
       break;
-    case 'descending':
+    case false:
       sortHotels.sort((a, b) => (b[sort.property] > a[sort.property] ? 1 : -1));
       break;
     default:

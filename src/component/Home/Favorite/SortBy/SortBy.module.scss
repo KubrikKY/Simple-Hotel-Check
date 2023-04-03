@@ -4,6 +4,8 @@
   align-items: center;
   width: 100%;
   max-width: 200px;
+  margin-bottom: 32px;
+
   .SortBy {
     display: flex;
     justify-content: space-between;
@@ -11,15 +13,34 @@
     padding: 4px 8px;
     border: 1px solid #41522e;
     border-radius: 4px;
-    width: 89px;
+    width: 96px;
     height: 28px;
     font-weight: 400;
     font-size: 14px;
     cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s linear;
+    &:hover {
+      opacity: 0.6;
+    }
+    .Direction {
+      width: 18px;
+      height: 18px;
+      background: url('../../../../img/sortDirection.png');
+    }
     input {
       opacity: 0;
       width: 0;
       height: 0;
+    }
+    .RotateDirection {
+      transform: rotate(180deg);
+    }
+  }
+  .SelectOrder {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
     }
   }
 }
