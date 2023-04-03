@@ -58,4 +58,34 @@
       }
     }
   }
+  @media screen and (max-width: 900px) {
+    .HotelInfo {
+      font-size: 13px;
+
+      h4 {
+        font-size: 13px;
+      }
+      .DateInfo {
+        margin-bottom: 5px;
+        font-size: 11px;
+        line-height: 19px;
+      }
+    }
+
+    .HotelPrice {
+      .Price {
+        width: 100px;
+        font-size: 11px;
+        span {
+          font-size: 13px;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 660px) {
+    .HotelIcon {
+      display: none;
+    }
+  }
 }
