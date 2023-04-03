@@ -5,6 +5,7 @@ import { fetchFindHotels } from './store/reducer/reducerHotel';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import Home from './components/Home/Home';
+import NotFound from './components/NotFound/NotFound';
 
 import Login from './components/Login/Login';
 
@@ -52,6 +53,7 @@ function App() {
               <Login onSuсcessLogin={onSuсcessLogin} userLogin={user.online} />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
