@@ -2,8 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setOnlineAction, setLoginAction } from './store/reducer/reducerUser';
 import './App.css';
 import { fetchFindHotels } from './store/reducer/reducerHotel';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import { Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import Home from './components/Home/Home';
 
@@ -17,8 +16,8 @@ function App() {
     state.hotels.checkOut,
     state.hotels.location,
   ]);
-  const onSuсcessLogin = (event) => {
-    event.preventDefault();
+
+  const onSuсcessLogin = () => {
     if (!localStorage.getItem(user.login)) {
       localStorage.setItem(
         user.login,
@@ -43,9 +42,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {user.online ? <Home /> : <Login onSuсcessLogin={onSuсcessLogin} />}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path={'/'} element={<Home userLogin={user.online} />} />
+          <Route
+            path={'/login'}
+            element={
+              <Login onSuсcessLogin={onSuсcessLogin} userLogin={user.online} />
+            }
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

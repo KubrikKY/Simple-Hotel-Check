@@ -20,10 +20,15 @@ function LoginForm({ onSuсcessLogin }) {
     password: false,
   });
 
+  const onLogin = (event) => {
+    event.preventDefault();
+    onSuсcessLogin();
+  };
+
   let onSubmit = (e) => e.preventDefault();
 
   if (validForm.login && validForm.password) {
-    onSubmit = onSuсcessLogin;
+    onSubmit = onLogin;
   }
 
   const setLogin = (input) => {
