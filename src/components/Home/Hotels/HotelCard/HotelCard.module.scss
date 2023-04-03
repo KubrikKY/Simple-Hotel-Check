@@ -39,8 +39,10 @@
     flex-direction: column;
     align-items: end;
     justify-content: space-between;
-    p {
-      display: block;
+    .Price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100px;
       font-weight: 300;
       font-size: 11px;
@@ -50,7 +52,7 @@
         font-weight: 300;
         font-size: 17px;
         line-height: 22px;
-        margin-left: 8px;
+        // margin-left: 20px;
 
         color: #424242;
       }

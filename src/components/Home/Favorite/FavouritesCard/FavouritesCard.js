@@ -21,9 +21,10 @@ function FavouritesCard({ hotelName, id, price, like, checkInfo, rating }) {
 
       <div className={classes.HotelPrice}>
         <Like id={id} like={like} />
-        <p>
-          Price: <span>{price}</span>
-        </p>
+        <div className={classes.Price}>
+          <p>Price:</p>
+          <span>{price}</span>
+        </div>
       </div>
     </li>
   );
