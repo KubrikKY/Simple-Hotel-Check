@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setOnlineAction, setLoginAction } from './state/reducer/reducerUser';
+import { setOnlineAction, setLoginAction } from './store/reducer/reducerUser';
 import './App.css';
-import { fetchFindHotels } from './state/reducer/reducerHotel';
+import { fetchFindHotels } from './store/reducer/reducerHotel';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import Home from './component/Home/Home';
+import Home from './components/Home/Home';
 
-import Login from './component/Login/Login';
+import Login from './components/Login/Login';
 
 function App() {
   const dispatch = useDispatch();

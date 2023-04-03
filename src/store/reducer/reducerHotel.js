@@ -1,4 +1,4 @@
-import { dateNow } from '../../func/dateNow';
+import { dateNow } from '../../utils/dateNow';
 
 const date = dateNow();
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './SearchInfo.module.scss';
-import { monthRu } from '../../../../func/monthRu';
+import { monthRu } from '../../../../utils/monthRu';
 import { useSelector } from 'react-redux';
 function SearchInfo() {
   const [checkIn, location] = useSelector((state) => [

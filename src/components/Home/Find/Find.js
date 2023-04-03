@@ -6,9 +6,9 @@ import {
   selectCheckOut,
   selectLocation,
   fetchFindHotels,
-} from '../../../state/reducer/reducerHotel';
-import { dateNow } from '../../../func/dateNow';
-import { compareDate } from '../../../func/compareDate';
+} from '../../../store/reducer/reducerHotel';
+import { dateNow } from '../../../utils/dateNow';
+import { compareDate } from '../../../utils/compareDate';
 
 function Find() {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import classes from './Like.module.scss';
 import {
   addFavoritesAction,
   deleteFavoritesAction,
-} from '../../../../state/reducer/reducerUser';
+} from '../../../../store/reducer/reducerUser';
 function Like({ id, like }) {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.user.favourites);

@@ -2,7 +2,7 @@ import React from 'react';
 import classes from '../Header.module.scss';
 import { useDispatch } from 'react-redux';
 
-import { logOutAction } from '../../../../state/reducer/reducerUser';
+import { logOutAction } from '../../../../store/reducer/reducerUser';
 function Exit() {
   const dispatch = useDispatch();
   const onExit = (event) => {

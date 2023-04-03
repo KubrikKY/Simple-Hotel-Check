@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './FavouritesCard.module.scss';
 import Like from '../Like/Like';
-import { monthRu } from '../../../../func/monthRu';
+import { monthRu } from '../../../../utils/monthRu';
 import Stars from '../../Hotels/Stars/Stars';
 
 function FavouritesCard({ hotelName, id, price, like, checkInfo, rating }) {

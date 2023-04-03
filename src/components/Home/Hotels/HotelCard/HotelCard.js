@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './HotelCard.module.scss';
 import Like from '../../Favorite/Like/Like';
-import { monthRu } from '../../../../func/monthRu';
+import { monthRu } from '../../../../utils/monthRu';
 import Stars from '../Stars/Stars';
 
 function HotelCard({ hotelName, id, price, like, checkInfo, rating }) {

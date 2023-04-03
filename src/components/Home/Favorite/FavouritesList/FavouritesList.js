@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import classes from './FavouritesList.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFavoritesFromLocalAction } from '../../../../state/reducer/reducerUser';
+import { addFavoritesFromLocalAction } from '../../../../store/reducer/reducerUser';
 import FavouritesCard from '../FavouritesCard/FavouritesCard';
 function FavouritesList({ sort }) {
   const dispatch = useDispatch();

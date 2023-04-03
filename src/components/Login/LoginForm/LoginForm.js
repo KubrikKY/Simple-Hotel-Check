@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setLoginAction,
   setPasswordAction,
-} from '../../../state/reducer/reducerUser';
+} from '../../../store/reducer/reducerUser';
+import { EMAIL_REGEXP, PASSWORD_REGEXP } from './RegExp/RegExp';
 
 function LoginForm({ onSuсcessLogin }) {
   const dispatch = useDispatch();
@@ -25,15 +26,10 @@ function LoginForm({ onSuсcessLogin }) {
     onSubmit = onSuсcessLogin;
   }
 
-  // LOGIN
-
   const setLogin = (input) => {
     onInputEmail(input);
     dispatch(setLoginAction(input.value));
   };
-
-  const EMAIL_REGEXP =
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
   const onInputEmail = (input) => {
     if (isEmailValid(input.value)) {
@@ -49,14 +45,10 @@ function LoginForm({ onSuсcessLogin }) {
     return EMAIL_REGEXP.test(value);
   };
 
-  // PASSWORD
-
   const setPassword = (input) => {
     onInputPassword(input);
     dispatch(setPasswordAction(input.value));
   };
-
-  const PASSWORD_REGEXP = /^[А-ЯЁ][а-яё]*$/;
 
   const onInputPassword = (input) => {
     if (isPasswordValid(input.value)) {

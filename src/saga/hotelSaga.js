@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import { FETCH_FIND_HOTELS, setHotels } from '../state/reducer/reducerHotel';
-import { checkOutForRequest } from '../func/checkOutForRequest';
+import { FETCH_FIND_HOTELS, setHotels } from '../store/reducer/reducerHotel';
+import { checkOutForRequest } from '../utils/checkOutForRequest';
 
 const fetchHotelsByFind = ({ checkIn, checkOut, location }) => {
   const checkOutRequest = checkOutForRequest(checkIn, checkOut);
