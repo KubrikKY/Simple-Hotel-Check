@@ -17,7 +17,9 @@ function LoginForm({ onSuсcessLogin }) {
 
   const [validForm, setValidForm] = useState({
     login: false,
+    loginFocus: false,
     password: false,
+    passwordFocus: false,
   });
 
   const onLogin = (event) => {
@@ -40,9 +42,13 @@ function LoginForm({ onSuсcessLogin }) {
     if (isEmailValid(input.value)) {
       input.style.borderColor = 'green';
       setValidForm({ ...validForm, login: true });
+      return;
     } else {
       input.style.borderColor = 'red';
       setValidForm({ ...validForm, login: false });
+    }
+    if (!validForm.loginFocus) {
+      setValidForm({ ...validForm, loginFocus: true });
     }
   };
 
@@ -59,9 +65,13 @@ function LoginForm({ onSuсcessLogin }) {
     if (isPasswordValid(input.value)) {
       input.style.borderColor = 'green';
       setValidForm({ ...validForm, password: true });
+      return;
     } else {
       input.style.borderColor = 'red';
       setValidForm({ ...validForm, password: false });
+    }
+    if (!validForm.passwordFocus) {
+      setValidForm({ ...validForm, passwordFocus: true });
     }
   };
 
@@ -74,7 +84,7 @@ function LoginForm({ onSuсcessLogin }) {
       <Title />
       <form className={classes.Form} onSubmit={onSubmit}>
         <label>
-          {!validForm.login ? (
+          {validForm.loginFocus && !validForm.login ? (
             <p className={classes.Warning}>Логин</p>
           ) : (
             <p>Логин</p>
@@ -85,10 +95,12 @@ function LoginForm({ onSuсcessLogin }) {
             onChange={(e) => setLogin(e.target)}
             value={login}
           ></input>
-          {!validForm.login && <span>Введите e-mail</span>}
+          {validForm.loginFocus && !validForm.login && (
+            <span>Введите e-mail</span>
+          )}
         </label>
         <label>
-          {!validForm.password ? (
+          {validForm.passwordFocus && !validForm.password ? (
             <p className={classes.Warning}>Пароль</p>
           ) : (
             <p>Пароль</p>
@@ -98,7 +110,9 @@ function LoginForm({ onSuсcessLogin }) {
             onChange={(e) => setPassword(e.target)}
             value={password}
           ></input>
-          {!validForm.password && <span>Пароль минимум 8 символов</span>}
+          {validForm.passwordFocus && !validForm.password && (
+            <span>Пароль минимум 8 символов</span>
+          )}
         </label>
         <input type="submit" value="Войти" />
       </form>
